@@ -41,10 +41,11 @@ public class TestBase {
 	public static ExcelReader excel = new ExcelReader(
 			"C:\\Users\\Hole\\Desktop\\Vijay\\Eclipse\\DataDrivernFramework\\src\\test\\resources\\excel\\Excel1.xlsx");
 	public static WebDriverWait wait;
+	public static String browser;
 
 	@BeforeSuite
 	public void setup() throws IOException {
-
+		
 		if (driver == null) {
 
 			fis = new FileInputStream(
@@ -57,6 +58,18 @@ public class TestBase {
 			OR.load(fis);
 			log.debug("OR file loaded");
 		}
+		
+		// for jenkins
+		if(System.getenv("browser")!=null && !System.getenv("browser").isEmpty()) {
+			
+			browser = System.getenv("browser");
+			
+		} else {
+			
+			browser = Config.getProperty("browser");
+			
+		} Config.setProperty("browser", browser);
+		
 
 		if (Config.getProperty("browser").equals("firefox")) {
 
