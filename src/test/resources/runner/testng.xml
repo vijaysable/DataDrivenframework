@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="DataDrivenBasics">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+		<listener class-name="com.vj.Listeners.CustomListeners"></listener>
+		<listener class-name="com.vj.Listeners.ExtentListeners"></listener>
+	</listeners>
+
+	<test thread-count="5" name="LoginTest">
+		<classes>
+			<class name="com.vj.TestCases.BankManagerLoginTestCase1" />
+		</classes>
+	</test> <!-- LoginTest -->
+
+	<test thread-count="5" name="AddCustomer">
+		<classes>
+			<class name="com.vj.TestCases.AddCustomerTestCase" />
+		</classes>
+	</test> <!-- LoginTest -->
+	
+	<test thread-count="5" name="OpenAccount">
+		<classes>
+			<class name="com.vj.TestCases.OpenAccountTest" />
+		</classes>
+	</test> <!-- LoginTest -->
+
+</suite> <!-- DataDrivenBasics -->
